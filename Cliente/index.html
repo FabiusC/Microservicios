@@ -1,16 +1,80 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cliente</title>
+  <title>Gestión de Productos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 24px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
+
+    .actions button {
+      margin-right: 8px;
+    }
+
+    .msg {
+      margin: 12px 0;
+      font-weight: bold;
+    }
+
+    form {
+      margin-bottom: 16px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      margin-right: 8px;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  <h1>Gestión de Productos</h1>
+  <div id="msg" class="msg"></div>
+  <form id="producto-form">
+    <input type="hidden" id="producto-id">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="number" id="precio" placeholder="Precio" step="0.01" required>
+    <input type="number" id="stock" placeholder="Stock" required>
+    <button type="submit">Agregar</button>
+    <button type="button" id="cancelar" style="display:none;">Cancelar</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Fecha de Creación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="productos-tbody"></tbody>
+  </table>
+  <script src="main.js"></script>
 </body>
 
 </html>
